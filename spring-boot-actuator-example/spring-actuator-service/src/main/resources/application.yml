@@ -1,0 +1,35 @@
+
+server:
+  port: 9090    #default port where the service will be started
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+spring:
+  application:
+    name: spring-actuator-service   #current service name to be used by the eureka server
+
+management:
+  security:
+    enabled: false  #disable the spring security on the management endpoints like /env, /refresh etc.
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+logging:
+  level:
+    com.example.howtodoinjava: DEBUG
+
+info:
+  app:
+    build-number: 1.0.0
+    description: Spring Actuator Example.
+    name: spring-actuator-service
+    version: 1.0.0
+
+
+
+

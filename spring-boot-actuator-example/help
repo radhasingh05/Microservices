@@ -1,0 +1,35 @@
+Start the Eureka server first
+
+for actuator end points (it will provide the actuator links )
+http://localhost:9090/actuator/
+
+{"_links":{"self":{"href":"http://localhost:9090/actuator","templated":false},
+"health":{"href":"http://localhost:9090/actuator/health","templated":false},
+"health-path":{"href":"http://localhost:9090/actuator/health/{*path}","templated":true},
+"info":{"href":"http://localhost:9090/actuator/info","templated":false}}}
+
+Most used actuator end points
+/beans
+/env
+/info
+/health
+/metrics
+/mapping
+/threaddump
+/heapdump
+/loggers
+/trace
+/auditevents
+
+
+http://localhost:9090/actuator/env/java.home
+
+to yml properties plugin
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-configuration-processor</artifactId>
+    <optional>true</optional>
+</dependency>
+
+
+
