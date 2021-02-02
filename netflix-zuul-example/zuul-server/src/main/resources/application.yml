@@ -1,0 +1,37 @@
+server:
+  port: 9090    #default port where the service will be started
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+spring:
+  application:
+    name: zuul-server   #current service name to be used by the eureka server
+
+management:
+  security:
+    enabled: false  #disable the spring security on the management endpoints like /env, /refresh etc.
+
+logging:
+  level:
+    com.example.howtodoinjava: DEBUG
+
+zuul:
+  routes:
+    subway:
+      service-id: /client/**
+      path: /client/**
+      url: "http://localhost:8090/"
+      strip-prefix: false
+#    subway1:
+#      service-id: /subway1/**
+#      path: /subway1/**
+#      strip-prefix: false
+#      url: "http://localhost:6666/"
+#    subway2:
+#      service-id: /subway2/**
+#      path: /subway2/**
+#      url: "http://localhost:5555/"
+#      strip-prefix: false

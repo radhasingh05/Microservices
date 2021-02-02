@@ -1,0 +1,15 @@
+start eureka server first
+
+http://localhost:8761
+
+start the zuul server
+
+port number 9090
+
+start eureka client server
+
+hitting actual server
+http://localhost:8090/client/getMsg
+
+from the proxy server
+http://localhost:9090/client/getMsg
