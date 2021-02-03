@@ -1,0 +1,12 @@
+start eureka server first
+
+http://localhost:8761
+
+start the Config server
+
+port number 8888
+
+start eureka client server
+
+hitting eureka client server
+http://localhost:9090/client/getMsg
