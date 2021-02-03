@@ -1,0 +1,33 @@
+start eureka server first
+
+http://localhost:8761
+
+start the Config server
+
+port number 8888
+
+start account server
+
+hitting account server
+http://localhost:8090/account/getMsg
+
+start customer server
+
+hitting customer server
+http://localhost:9090/customer/getMsg
+
+to run the application
+go to the module directory and
+mvn spring-boot:run
+
+
+to activate the particular profile
+mvn spring-boot:run -Dspring-boot.run.profiles=dev
+
+and @Profile on the bean method or on the configuration class
+
+
+for actuator end points
+
+http://localhost:9090/actuator/beans
+http://localhost:8090/actuator/beans
