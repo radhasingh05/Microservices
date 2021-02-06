@@ -1,0 +1,85 @@
+start eureka server first
+http://localhost:8761
+
+start the Config service
+port number 8888
+
+start user service
+start orders service
+start aggregator service
+
+to activate the particular profile
+mvn spring-boot:run -Dspring-boot.run.profiles=dev
+
+and @Profile on the bean method or on the configuration class
+
+to run the application
+go to the module directory and
+mvn spring-boot:run
+
+for actuator end points
+
+http://localhost:xxxx/actuator/beans
+
+
+hitting user server
+for h2 console
+http://localhost:9090/h2-console
+POST
+http://localhost:9090/user/save
+
+{
+    "firstName":"Adarsh",
+    "lastName" :"Kumar",
+    "emailId" : "adarshkumar@gmail.com",
+    "gender" : "Male",
+    "address": {
+        "street" : "5250 Twon and county blvd",
+        "city" : "frisco",
+        "state" : "TX",
+        "pin" : 75034
+    }
+}
+------
+{
+    "firstName":"Radha",
+    "lastName" :"Singh",
+    "emailId" : "radhsingh@gmail.com",
+    "gender" : "Female",
+    "address": {
+        "street" : "5250 Twon and county blvd",
+        "city" : "frisco",
+        "state" : "TX",
+        "pin" : 75034
+    }
+}
+
+GET
+http://localhost:9090/user/getAll
+
+--------------------------------
+
+hitting orders service
+http://localhost:8090/orders/save
+
+{
+    "orderStatus" : "new",
+    "customerId" : "1",
+    "street" : "5250 Twon and county blvd",
+    "city" : "frisco",
+    "state" : "TX",
+    "pin" : "75034"
+}
+
+GET
+
+http://localhost:8090/order/getAll
+
+to refresh the properties from git
+POST
+http://localhost:8090/actuator/refresh
+
+for Aggregator service
+http://localhost:8081/aggregator/getAllOrderDetails
+
+http://localhost:8081/aggregator/getOrderDetails?orderId=1
