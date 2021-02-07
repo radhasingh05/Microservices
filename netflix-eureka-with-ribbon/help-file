@@ -1,0 +1,80 @@
+start eureka server first
+http://localhost:8761
+
+start user service
+start orders service
+
+to run the application
+go to the module directory and
+mvn spring-boot:run
+
+for actuator end points
+
+http://localhost:xxxx/actuator/beans
+
+hitting user server
+for h2 console
+http://localhost:9090/h2-console
+POST
+http://localhost:9090/user/save
+
+{
+    "firstName":"Adarsh",
+    "lastName" :"Kumar",
+    "emailId" : "adarshkumar@gmail.com",
+    "gender" : "Male",
+    "address": {
+        "street" : "5250 Twon and county blvd",
+        "city" : "frisco",
+        "state" : "TX",
+        "pin" : 75034
+    }
+}
+------
+{
+    "firstName":"Radha",
+    "lastName" :"Singh",
+    "emailId" : "radhsingh@gmail.com",
+    "gender" : "Female",
+    "address": {
+        "street" : "5250 Twon and county blvd",
+        "city" : "frisco",
+        "state" : "TX",
+        "pin" : 75034
+    }
+}
+
+GET
+http://localhost:9090/user/getAll
+
+--------------------------------
+
+hitting orders service
+http://localhost:8090/orders/save
+
+{
+    "orderStatus" : "new",
+    "customerId" : "1",
+    "street" : "5250 Twon and county blvd",
+    "city" : "frisco",
+    "state" : "TX",
+    "pin" : "75034"
+}
+
+GET
+
+http://localhost:8090/order/getAll
+
+
+--------------------------------
+
+How to run multiple instance of an application
+
+java -jar target/user-service-0.0.1-SNAPSHOT.jar --server.port=9091
+
+java -jar target/user-service-0.0.1-SNAPSHOT.jar --server.port=9090
+
+to check the load balancing
+
+http://localhost:8090/order/getUser?userId=1
+
